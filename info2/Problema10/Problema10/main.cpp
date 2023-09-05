@@ -25,5 +25,6 @@ int main()
         num++;
     }
     cout<<"El primo numero "<<N<<" es: "<<num-1;
+    return 0;
 }
 
