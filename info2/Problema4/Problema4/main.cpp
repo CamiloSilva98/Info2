@@ -38,4 +38,5 @@ int main()
         }
     }
     cout<<D<<hort<<mint<<'\n';
+    return 0;
 }
