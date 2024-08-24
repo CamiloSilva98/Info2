@@ -8,6 +8,7 @@ int main()
     cout << "Ingrese un numero: ";
     cin >> a;
     b=a;
+    cout<<b<<"^1"<<"="<<b<<'\n';
     for(int i=0;i<4;i++)
     {
         a = a*b;
