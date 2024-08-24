@@ -6,7 +6,7 @@ int main()
     long long int fact=1;
     cout<<"Ingrese un numero entre 1 y 65: ";
     cin>>num;
-    while(num>65)
+    while(num>65 || num<=0)
         {
             cout<<"Ingrese un numero entre 1 y 65: ";
             cin>>num;
@@ -18,6 +18,6 @@ int main()
         div=1.0/fact;
         e=e+div;
     }
-    cout<<e;
+    cout<<"e es aproximadamente: "<<e;
     return 0;
 }
