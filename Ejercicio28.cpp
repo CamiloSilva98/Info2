@@ -1,4 +1,4 @@
-/Recibe un numero y calcula pi/
+//Recibe un numero y calcula pi
 
 #include <iostream>
 using namespace std;
