@@ -1,4 +1,4 @@
-/Escribe dos columnas una del 50 al 1 y la otra del 1 al 50/
+//Escribe dos columnas una del 50 al 1 y la otra del 1 al 50
 
 
 #include <iostream>
