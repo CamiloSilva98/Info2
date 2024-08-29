@@ -2,13 +2,12 @@
 using namespace std;
 int main()
 {
-    int c1, c, s, s1, semilla;
+    int c1, s, s1, semilla, c=0;
     cout<<"Ingrese un numero: ";
     cin>>semilla;
     s=semilla;
-    c=0;
     c1=0;
-    for(int i=0;i<=semilla;i++)
+    for(int i=2;i<=semilla;i++)
     {
         s1=i;
         while(s1>1)
