@@ -1,4 +1,4 @@
-/Dice cuales son los multimplos de un numero menores de 100/
+//Dice cuales son los multimplos de un numero menores de 100
 
 #include <iostream>
 using namespace std;
