@@ -248,9 +248,11 @@ int main()
                 {
                     cout<<"Ingrese el valor que desea retirar: ";
                     cin>>rSaldo;
-                    actualizarSaldo(nDatos, rSaldo);
-                    escribirArchivo(usuario+ ".txt",encriptar(nDatos, 4));
-                    cout<<"Su dinero fue retirado.\n";
+                    if (actualizarSaldo(nDatos, rSaldo))
+                    {
+                        escribirArchivo(usuario + ".txt", encriptar(nDatos, 4));
+                        cout << "Su dinero fue retirado.\n";
+                    }
                 }
                 else if(num == 2)
                 {
