@@ -10,43 +10,47 @@ bool actualizarSaldo(string& archivoDesencriptado, unsigned int montoRetirar)
 
     if (pos != string::npos)
     {
-        pos += 7;  // Posiciona justo después de "Saldo: "
+        pos += 7;
         unsigned int saldoActual = stoi(archivoDesencriptado.substr(pos));
 
         if (saldoActual >= montoRetirar)
         {
             unsigned int nuevoSaldo = saldoActual - montoRetirar;
             archivoDesencriptado.replace(pos, string::npos, to_string(nuevoSaldo));
-            return true;  // Se actualizó el saldo correctamente
+            return true;
         }
         else
         {
             cerr << "Saldo insuficiente." << endl;
-            return false;  // No se pudo realizar la operación por falta de saldo
+            return false;
         }
     } else {
         cerr << "No se encontró la línea de saldo." << endl;
-        return false;  // No se encontró el saldo en el archivo
+        return false;
     }
 }
 bool archivoExiste(const string& nombreArchivo)
 {
-    ifstream archivo(nombreArchivo);  // Abre el archivo
-    bool existe = archivo.is_open();  // Verifica si está abierto (es decir, si existe)
+    ifstream archivo(nombreArchivo);
+    bool existe = archivo.is_open();
 
     if (existe)
     {
-        archivo.close();  // Cierra el archivo si estaba abierto
+        archivo.close();
     }
 
-    return existe;  // Devuelve el resultado de la verificación
+    return existe;
 }
-void agregarArchivo(const string& nombreArchivo, const string& datos) {
-    ofstream archivo(nombreArchivo, ios::app); // Abrir en modo de agregar
-    if (archivo.is_open()) {
+void agregarArchivo(const string& nombreArchivo, const string& datos)
+{
+    ofstream archivo(nombreArchivo, ios::app);
+    if (archivo.is_open())
+    {
         archivo << datos << endl;
         archivo.close();
-    } else {
+    }
+    else
+    {
         cerr << "No se pudo abrir el archivo." << endl;
     }
 }
@@ -91,7 +95,7 @@ string convertirCharABinario(char c)
     string binario;
     for (int i = 7; i >= 0; --i)
     {
-        binario += ((c >> i) & 1) ? '1' : '0';  // Extrae cada bit de izquierda a derecha
+        binario += ((c >> i) & 1) ? '1' : '0';
     }
     return binario;
 }
@@ -102,7 +106,7 @@ string convertirABinario(const string& texto)
     string binario;
     for (char c : texto)
     {
-        binario += convertirCharABinario(c);  // Convierte cada carácter y lo añade a la cadena binaria
+        binario += convertirCharABinario(c);
     }
     return binario;
 }
@@ -115,7 +119,7 @@ char convertirBinarioAChar(const string& binario)
     {
         if (binario[i] == '1')
         {
-            c |= (1 << (7 - i));  // Activa el bit correspondiente en la posición correcta
+            c |= (1 << (7 - i));
         }
     }
     return c;
@@ -127,8 +131,8 @@ string convertirBinarioATexto(const string& binario)
     string texto;
     for (size_t i = 0; i < binario.size(); i += 8)
     {
-        string bloque = binario.substr(i, 8);  // Toma bloques de 8 bits
-        texto += convertirBinarioAChar(bloque);  // Convierte el bloque binario a un carácter
+        string bloque = binario.substr(i, 8);
+        texto += convertirBinarioAChar(bloque);
     }
     return texto;
 }
@@ -136,15 +140,14 @@ string convertirBinarioATexto(const string& binario)
 // Encriptación mediante desplazamiento de bits dentro de bloques de tamaño n
 string encriptar(const string& texto, int n)
 {
-    string binario = convertirABinario(texto);  // Convierte el texto a binario
+    string binario = convertirABinario(texto);
     string resultado;
 
     // Recorremos los bloques de n bits
     for (size_t i = 0; i < binario.size(); i += n)
     {
-        string bloque = binario.substr(i, n);  // Obtenemos un bloque de tamaño n
-        string bloqueEncriptado = bloque;      // Hacemos una copia del bloque
-
+        string bloque = binario.substr(i, n);
+        string bloqueEncriptado = bloque;
         // Desplazamos los bits una posición dentro del bloque (hacia la derecha)
         for (int j = 0; j < n; ++j)
         {
