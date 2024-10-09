@@ -263,9 +263,9 @@ int main()
                     if (nDatos.find("Saldo: ") != string::npos)
                     {
                         size_t pos = nDatos.find("Saldo: ");
-                        cout << nDatos.substr(pos) << endl;
                         actualizarSaldo(nDatos,0);
                         escribirArchivo(usuario+ ".txt",encriptar(nDatos, 4));
+                        cout << nDatos.substr(pos) << endl;
                     }
 
                 }
