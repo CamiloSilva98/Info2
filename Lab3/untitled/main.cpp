@@ -227,6 +227,8 @@ int main()
     getline(cin, usuario);
     cout<<"Ingrese su clave: ";
     getline(cin, clave);
+   // nDatos = usuario + clave;//cambiar el nombre y clave de usuario
+    //escribirArchivo("sudo.txt", encriptar(nDatos,4));
     nDatos = desencriptar(leerArchivo("sudo.txt") ,4);
     if (nDatos.find(usuario) != string::npos && nDatos.find(clave) != string::npos)
     {
